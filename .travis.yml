@@ -17,7 +17,7 @@ install:
 
 sudo: required
 script:
-  - NOSE_VERBOSE=0 tox -e $TOX_ENV
+  - NOSE_VERBOSE=0 TOX_TARGET=$TOX_ENV tox -e $TOX_ENV
 
 after_success:
   - coveralls
