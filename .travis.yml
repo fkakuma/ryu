@@ -6,11 +6,11 @@ services:
   - docker
 
 env:
-  - TOX_ENV=py27
-  - TOX_ENV=py34
-  - TOX_ENV=py35
-  - TOX_ENV=pypy26
-  - TOX_ENV=pep8
+  - TOX_ENV=py27 SCENARIO=true
+  - TOX_ENV=py34 SCENARIO=true
+  - TOX_ENV=py35 SCENARIO=false
+  - TOX_ENV=pypy26 SCENARIO=false
+  - TOX_ENV=pep8 SCENARIO=false
 
 install:
   - pip install tox coveralls
