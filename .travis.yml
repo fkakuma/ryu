@@ -1,23 +1,36 @@
 language: python
-python:
-  - "3.5"  # Python 3.5 still needs to be installed on Travis-CI
 
-services:
-  - docker
-
-env:
-  - TOX_ENV=py27
-  - TOX_ENV=py34
-  - TOX_ENV=py35
-  - TOX_ENV=pypy26
-  - TOX_ENV=pep8
+matrix:
+  include:
+  - env: TOX_ENV=py27
+    python: "2.7"
+    services: docker
+    sudo: required
+    script: 
+    - NOSE_VERBOSE=0 tox -e $TOX_ENV
+    - tox -e scenario
+  - env: TOX_ENV=py34
+    python: "3.4"
+    services: docker
+    sudo: required
+    script:
+    - NOSE_VERBOSE=0 tox -e $TOX_ENV
+    - tox -e scenario
+  - env: TOX_ENV=py35
+    python: "3.5"
+    script:
+    - NOSE_VERBOSE=0 tox -e $TOX_ENV
+  - env: TOX_ENV=pypy26
+    python: "3.5"  # Python 3.5 still needs to be installed on Travis-CI
+    script:
+    - NOSE_VERBOSE=0 tox -e $TOX_ENV
+  - env: TOX_ENV=pep8
+    python: "3.5"
+    script:
+    - NOSE_VERBOSE=0 tox -e $TOX_ENV
 
 install:
   - pip install tox coveralls
-
-sudo: required
-script:
-  - NOSE_VERBOSE=0 tox -e $TOX_ENV
 
 after_success:
   - coveralls
