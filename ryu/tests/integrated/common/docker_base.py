@@ -211,6 +211,7 @@ class DockerImage(object):
         c << 'RUN pip install -U six paramiko msgpack-rpc-python'
         c << 'ADD ryu ' + workdir_ctn
         install = 'RUN cd %s && pip install -r tools/pip-requires ' % workdir_ctn
+        install += '-r tools/test-requires '
         install += '&& python setup.py install'
         c << install
 
