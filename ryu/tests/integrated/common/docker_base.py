@@ -208,7 +208,7 @@ class DockerImage(object):
         c << 'FROM ' + use_image
         c << 'RUN apt-get update'
         c << 'RUN apt-get install -qy --no-install-recommends ' + pkges
-        c << 'RUN pip install -U six paramiko msgpack-rpc-python'
+        c << 'RUN pip install -U six paramiko msgpack-rpc-python tinyrpc'
         c << 'ADD ryu ' + workdir_ctn
         install = 'RUN cd %s && pip install -r tools/pip-requires ' % workdir_ctn
         install += '&& python setup.py install'
