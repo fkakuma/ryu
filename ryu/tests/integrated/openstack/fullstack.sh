@@ -1,6 +1,7 @@
 #!/bin/bash
 set -xe
 
+id
 sudo mkdir -p /opt/stack
 sudo chown -R travis:travis /opt/stack
 export STACK_USER=stack
@@ -79,6 +80,7 @@ EOF
 
 sudo tools/create-stack-user.sh
 sudo chown -R $STACK_USER:$STACK_USER /opt/stack
+export VIRTUAL_ENV=""
 $SUDO_EXEC ./stack.sh
 $SUDO_EXEC ./unstack.sh
 cd ../neutron
