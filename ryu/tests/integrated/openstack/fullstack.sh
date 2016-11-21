@@ -2,7 +2,7 @@
 set -xe
 
 sudo mkdir -p /opt/stack
-sudo chown -R $USER:root /opt/stack
+sudo chown -R travis:travis /opt/stack
 export STACK_USER=stack
 pushd ../
 ROOTDIR=`pwd`
