@@ -1,6 +1,7 @@
 #!/bin/bash
 set -xe
 
+id
 sudo mkdir -p /opt/stack
 sudo chown -R travis:travis /opt/stack
 export STACK_USER=stack
@@ -79,10 +80,12 @@ EOF
 
 sudo tools/create-stack-user.sh
 sudo chown -R $STACK_USER:$STACK_USER /opt/stack
+export VIRTUAL_ENV=""
 $SUDO_EXEC ./stack.sh
 $SUDO_EXEC ./unstack.sh
 cd ../neutron
-export INSTALL_MYSQL_ONLY=True
+#export INSTALL_MYSQL_ONLY=True
+sudo chmod o+rwx $BASEDIR
 bash -xe $BASEDIR/neutron/neutron/tests/contrib/gate_hook.sh dsvm-fullstack
 bash -xe $BASEDIR/neutron/neutron/tests/contrib/post_test_hook.sh dsvm-fullstack
 popd
