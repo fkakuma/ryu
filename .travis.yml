@@ -16,8 +16,7 @@ install:
   - pip install tox coveralls
 
 script:
-  - NOSE_VERBOSE=0 tox -e $TOX_ENV
-  - bash -xe ryu/tests/integrated/openstack/fullstack.sh
+  - bash -xe ryu/tests/integrated/openstack/fullstack_main.sh
 
 after_success:
   - coveralls
