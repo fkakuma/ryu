@@ -1,6 +1,9 @@
 #!/bin/bash
 set -xe
 
+if [ -z $USER ]; then
+    USER=travis
+fi
 DIR_PATH=`dirname $0`
 pushd $DIR_PATH
 SCRIPT_PATH=`pwd`
