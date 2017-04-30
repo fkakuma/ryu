@@ -231,7 +231,7 @@ class Bridge(object):
     def __init__(self, name, subnet='', start_ip=None, end_ip=None,
                  with_ip=True, self_ip=False,
                  fixed_ip=None, reuse=False,
-                 br_type='docker'):
+                 br_type=BRIDGE_TYPE_DOCKER):
         """Manage a bridge
         :Parameters:
             - name: bridge name
