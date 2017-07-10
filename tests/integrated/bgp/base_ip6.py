@@ -20,9 +20,9 @@ import logging
 import sys
 import unittest
 
-from ryu.tests.integrated.common import docker_base as ctn_base
-from ryu.tests.integrated.common import ryubgp
-from ryu.tests.integrated.common import quagga
+from ryu.lib.docker import docker_base as ctn_base
+from ryu.lib.docker import ryubgp
+from ryu.lib.docker import quagga
 
 
 LOG = logging.getLogger(__name__)
