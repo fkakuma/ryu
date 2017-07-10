@@ -18,7 +18,8 @@ from __future__ import absolute_import
 
 import time
 
-from tests.integrated.common import docker_base as ctn_base
+from ryu.tests.integrated.common import docker_base as ctn_base
+
 from . import base
 
 
